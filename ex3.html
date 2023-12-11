@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+<body>
+    <p>Aguardar 3 segundos para dizer olá</p> 
+    <button onclick="setTimeout (myFunction, 3000);">Clique aqui setTimeout</button>
+    <button onclick="setInterval (myFunction, 3000);">Clique aqui setInterval </button>
+
+    <br>
+    <h2 id="dia"></h2>
+    <h2 id="demo"></h2>
+    <h2 id="mili"></h2>
+    <button onclick="clearInterval(myVar)">PARAR</button>
+
+    <br>
+    <button onclick = "setTimeout(function(){alert(`Salve`)}, 3000)">Mandar Salve</button>
+    <button onclick="myVar=setTimeout(myVar)">Parar Salve</button>
+
+    <br>
+    <button onclick = essaFunction()>ver Anúncio?</button>
+
+    <Script Src = "JS/script3.js"></Script>
+</body>
+</html>

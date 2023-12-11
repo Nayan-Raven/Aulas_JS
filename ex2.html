@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+    <link rel="stylesheet" href="CSS/ex2.css">
+</head>
+<body onload="LoadFunction()">
+    
+    NOME: <input type="text" id="myInput" onblur="blurFunction()"> 
+
+    <p>Modificar texto</p>
+
+    Entre com o texto: <input type="text" name="txt" value="AQUI"
+    onchange="myFunction(this.value)">
+
+    <p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">
+    Ao pressionar o mause sobre esse texto,
+    o valor da propriedade da cor vai ser alterada.</p>
+
+    <div onmouseover="coordenadasFigura(event)" onmouseout="clearcoor()">
+    <img class="tamanho" src="IMG/19355.jpg">
+    </div>
+
+    <p id="demo3"></p>
+
+    <form name="form1" action="" onsubmit="submitFunction(campo1, campo2)" method="post" onreset="alert('Todos os lados serão apagados')">
+    
+    Campo1: <input type="text" size="10" name="campo1"><br>
+    Campo2: <input type="text" size="10" name="campo2"><br>
+
+    <input type="submit" value="Confirmar">
+    <input type="reset">
+    
+    </form>
+
+    <Script Src = "JS/script2.js"></Script>
+</body>
+</html>

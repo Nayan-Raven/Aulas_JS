@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+</head>
+<body>
+    <h1>Consulta de CEP</h1>
+    <form method="get" action=".">
+    <label>CEP:
+        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(thsi.value);"><br><br></label>
+        <label>Rua:
+        <label><input name="logradouro" type="text" id="logradouro" value="" size="10"><br><br></label>
+        Bairro:
+        <label> <input name="bairro" type="text" id="bairro" value="" size="10"><br><br></label>
+        Cidade:
+        <label><input name="cidade" type="text" id="cidade" value="" size="10"><br><br></label>
+        Estado:
+        <label><input name="estado" type="text" id="estado" value="" size="10"></label>
+    </form>
+
+        <script>
+
+function limpa_form(){
+    document.getElementById('rua').value=("");
+    document.getElementById('bairro').value=("");
+    document.getElementById('cidade').value=("");
+    document.getElementById('estado').value=("");  
+}
+function atualiza_campos(conteudo){
+    if(!("erro" in conteudo)){
+        document.getElementById('rua'.value=(conteudo.logradouro));
+        document.getElementById('bairro'.value=(conteudo.bairro));
+        document.getElementById('cidade'.value=(conteudo.cidade));
+        document.getElementById('estado'.value=(conteudo.estado));
+    }else{
+        limpa_form();
+        alert("Cep não foi encontrado")
+    }
+}
+function pesquisacep(valor){
+    //variavel recebe apenas valores decimais (inteiros)
+    var cep = valor.replace(/\D/g,'');
+    //condição de validação
+    if(cep != ""){
+        var validacep = /^[0-9]{8}$/;
+        //valida o formato do CEP
+        if (validacep.test(cep)){
+        document.getElementById('rua').value="carregando";
+        document.getElementById('bairro').value="carregando";
+        document.getElementById('cidade').value="carregando";
+        document.getElementById('estado').value="carregando";
+    }
+    //criou no (elemento)9
+    var elemento = document.createElement('script');
+    //adiciona informações no elemento
+    elemento.src = 'httl://viacep.com.br/ws/' + cep + '/json/?callback=atualiza_campos';
+    //insere scriptbno documento e carrega seu conteudo
+    document.body.appendChild(elemento);
+    }else{
+        limpa_form();
+        alert("Formato de CEP inválido");
+    } 
+}   //fecha if
+    else{
+        limpa_form();    
+    };
+
+        </script>
+        
+</body>
+</html>
+
